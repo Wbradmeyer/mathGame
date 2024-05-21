@@ -25,12 +25,14 @@
 }
 
 .answer {
+  display: block;
   height: 40px;
   max-width: 200px;
   border: 1px solid black;
   border-radius: 10px;
   font-size: 26pt;
   text-align: right;
+  margin: 5px;
 }
 
 .character {
