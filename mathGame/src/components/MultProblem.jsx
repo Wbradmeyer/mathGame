@@ -1,12 +1,19 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 const MultProblem = () => {
+  const navigate = useNavigate();
   let [level, setLevel] = useState(1);
-  const [answer, setAnswer] = useState(0);
-  let factor1 = Math.floor(Math.random() * 10 + 1);
-  let factor2 = Math.floor(Math.random() * 10 + 1);
+  const [answer, setAnswer] = useState("");
+  const [factor1, setFactor1] = useState(0);
+  const [factor2, setFactor2] = useState(0);
   let product = factor1 * factor2;
+
+  useEffect(() => {
+    setFactor1(Math.floor(Math.random() * 10 + 1));
+    setFactor2(Math.floor(Math.random() * 10 + 1));
+  }, []);
 
   const handleVals = (e) => {
     setAnswer(e.target.value);
@@ -15,7 +22,7 @@ const MultProblem = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (answer == product) {
+    if (Number(answer) == product) {
       setLevel(level++);
       console.log(level);
     }
