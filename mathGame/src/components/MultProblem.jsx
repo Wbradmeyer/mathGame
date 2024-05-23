@@ -25,9 +25,16 @@ const MultProblem = () => {
     if (Number(answer) == product) {
       setLevel(level + 1);
       setAnswer("");
-      console.log(level);
-      setFactor1(Math.floor(Math.random() * 10 + 1));
-      setFactor2(Math.floor(Math.random() * 10 + 1));
+      if (level == 10) {
+        setFactor1(Math.floor(Math.random() * 10 + 11));
+        setFactor2(Math.floor(Math.random() * 10 + 11));
+      } else if (level >= 6) {
+        setFactor1(Math.floor(Math.random() * 10 + 11));
+        setFactor2(Math.floor(Math.random() * 10 + 1));
+      } else {
+        setFactor1(Math.floor(Math.random() * 10 + 1));
+        setFactor2(Math.floor(Math.random() * 10 + 1));
+      }
     }
   };
 
