@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 const MultProblem = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   let [level, setLevel] = useState(1);
   const [answer, setAnswer] = useState("");
   const [factor1, setFactor1] = useState(0);
@@ -23,8 +23,11 @@ const MultProblem = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (Number(answer) == product) {
-      setLevel(level++);
+      setLevel(level + 1);
+      setAnswer("");
       console.log(level);
+      setFactor1(Math.floor(Math.random() * 10 + 1));
+      setFactor2(Math.floor(Math.random() * 10 + 1));
     }
   };
 
