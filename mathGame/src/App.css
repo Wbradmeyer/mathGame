@@ -38,3 +38,7 @@
 .character {
   margin: 80px 0px 0px 20px
 }
+
+.bowser {
+  transform: rotateY(180deg);
+}
