@@ -5,8 +5,8 @@ import "../App.css";
 const MultProblem = (props) => {
   const { operator, setOperator } = props;
   let [level, setLevel] = useState(1);
-  const [answer, setAnswer] = useState("");
-  // const [answer, setAnswer] = useState(0);
+  // const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState(0);
   const [operand1, setOperand1] = useState(0);
   const [operand2, setOperand2] = useState(0);
   const [calculation, setCalculation] = useState(0);
@@ -45,14 +45,14 @@ const MultProblem = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     calculate(operand1, operand2, operator);
-    if (Number(answer) == calculation) {
-      // if (answer == calculation) {
+    // if (Number(answer) == calculation) {
+    if (answer == calculation) {
       if (level === 10) {
         setMessage("You Win!");
       } else {
         setLevel(level + 1);
-        setAnswer("");
-        // setAnswer(0);
+        // setAnswer("");
+        setAnswer(0);
         if (level == 9) {
           setOperand1(Math.floor(Math.random() * 10 + 11));
           setOperand2(Math.floor(Math.random() * 10 + 11));

@@ -6,6 +6,10 @@ const Select = (props) => {
   const navigate = useNavigate();
   const { operator, setOperator } = props;
 
+  useEffect(() => {
+    setOperator("+");
+  }, []);
+
   const handleVals = (e) => {
     setOperator(e.target.value);
   };
