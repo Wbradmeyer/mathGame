@@ -4,7 +4,7 @@ import "../App.css";
 
 const Select = (props) => {
   const navigate = useNavigate();
-  const [operator, setOperator] = props;
+  const { operator, setOperator } = props;
 
   const handleVals = (e) => {
     setOperator(e.target.value);
@@ -17,15 +17,20 @@ const Select = (props) => {
 
   return (
     <div>
-      <div className="container">
-        <form onSubmit={submitHandler}>
-          <select name="operator" id="operator" onChange={handleVals}>
-            <option value="+" selected>
-              +
-            </option>
-            <option value="-">-</option>
-            <option value="*">X</option>
-            <option value="/">/</option>
+      <div className="selectContainer">
+        <h1>Mario Math Game</h1>
+        <h2>Please select what type of problems you'd like.</h2>
+        <form onSubmit={submitHandler} className="selectForm">
+          <select
+            name="operator"
+            id="operator"
+            className="selectOperator"
+            onChange={handleVals}
+          >
+            <option value="+">Addition +</option>
+            <option value="-">Subtraction -</option>
+            <option value="*">Multiplication x</option>
+            <option value="/">Division /</option>
           </select>
           <button>Choose</button>
         </form>

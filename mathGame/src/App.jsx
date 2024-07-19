@@ -5,7 +5,7 @@ import MultProblem from "./components/MultProblem";
 import Select from "./components/Select";
 
 function App() {
-  const [operator, setOperator] = useState("");
+  const [operator, setOperator] = useState("+");
 
   return (
     <>
@@ -18,8 +18,6 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-      <Select></Select>
-      <MultProblem></MultProblem>
     </>
   );
 }

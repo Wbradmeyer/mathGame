@@ -1,9 +1,8 @@
 import { React, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const MultProblem = () => {
-  const navigate = useNavigate();
   let [level, setLevel] = useState(1);
   const [answer, setAnswer] = useState("");
   const [factor1, setFactor1] = useState(0);
@@ -44,6 +43,9 @@ const MultProblem = () => {
 
   return (
     <div>
+      <Link to={"/"} className="button">
+        Back to Select
+      </Link>
       <div className="container">
         <div>
           {message ? <h1>{message}</h1> : <h1>Level {level}</h1>}
