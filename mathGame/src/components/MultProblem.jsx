@@ -9,6 +9,7 @@ const MultProblem = () => {
   const [factor1, setFactor1] = useState(0);
   const [factor2, setFactor2] = useState(0);
   let product = factor1 * factor2;
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     setFactor1(Math.floor(Math.random() * 10 + 1));
@@ -22,17 +23,21 @@ const MultProblem = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (Number(answer) == product) {
-      setLevel(level + 1);
-      setAnswer("");
-      if (level == 9) {
-        setFactor1(Math.floor(Math.random() * 10 + 11));
-        setFactor2(Math.floor(Math.random() * 10 + 11));
-      } else if (level >= 5) {
-        setFactor1(Math.floor(Math.random() * 10 + 11));
-        setFactor2(Math.floor(Math.random() * 10 + 1));
+      if (level == 10) {
+        setMessage("You Win!");
       } else {
-        setFactor1(Math.floor(Math.random() * 10 + 1));
-        setFactor2(Math.floor(Math.random() * 10 + 1));
+        setLevel(level + 1);
+        setAnswer("");
+        if (level == 9) {
+          setFactor1(Math.floor(Math.random() * 10 + 11));
+          setFactor2(Math.floor(Math.random() * 10 + 11));
+        } else if (level >= 5) {
+          setFactor1(Math.floor(Math.random() * 10 + 11));
+          setFactor2(Math.floor(Math.random() * 10 + 1));
+        } else {
+          setFactor1(Math.floor(Math.random() * 10 + 1));
+          setFactor2(Math.floor(Math.random() * 10 + 1));
+        }
       }
     }
   };
@@ -41,7 +46,7 @@ const MultProblem = () => {
     <div>
       <div className="container">
         <div>
-          <h1>Level {level}</h1>
+          {message ? <h1>{message}</h1> : <h1>Level {level}</h1>}
           <div className="problemBox">
             <p className="number">{factor1}</p>
             <div className="operation">
