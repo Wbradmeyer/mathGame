@@ -29,7 +29,7 @@ const Select = (props) => {
           >
             <option value="+">Addition +</option>
             <option value="-">Subtraction -</option>
-            <option value="*">Multiplication x</option>
+            <option value="x">Multiplication x</option>
             <option value="/">Division /</option>
           </select>
           <button>Choose</button>

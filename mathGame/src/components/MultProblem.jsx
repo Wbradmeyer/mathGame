@@ -5,62 +5,62 @@ import "../App.css";
 const MultProblem = (props) => {
   const { operator, setOperator } = props;
   let [level, setLevel] = useState(1);
-  // const [answer, setAnswer] = useState("");
-  const [answer, setAnswer] = useState(0);
-  const [factor1, setFactor1] = useState(0);
-  const [factor2, setFactor2] = useState(0);
+  const [answer, setAnswer] = useState("");
+  // const [answer, setAnswer] = useState(0);
   const [operand1, setOperand1] = useState(0);
   const [operand2, setOperand2] = useState(0);
   const [calculation, setCalculation] = useState(0);
-  let product = factor1 * factor2;
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // setFactor1(Math.floor(Math.random() * 10 + 1));
-    // setFactor2(Math.floor(Math.random() * 10 + 1));
-    setOperand1(Math.floor(Math.random() * 10 + 1));
-    setOperand2(Math.floor(Math.random() * 10 + 1));
-    calculate(operand1, operand2);
+    generateNewProblem();
   }, []);
 
   const handleVals = (e) => {
     setAnswer(e.target.value);
+    console.log(`answer is: ${answer}`);
   };
 
-  const calculate = (num1, num2) => {
-    if (operator == "+") setCalculation(num1 + num2);
-    else if (operator == "-") setCalculation(num1 - num2);
-    else if (operator == "*") setCalculation(num1 * num2);
+  const generateNewProblem = () => {
+    setOperand1(Math.floor(Math.random() * 10 + 1));
+    setOperand2(Math.floor(Math.random() * 10 + 1));
   };
+
+  const calculate = (num1, num2, oper) => {
+    let total;
+    if (oper === "+") {
+      total = num1 + num2;
+    } else if (operator === "-") {
+      total = num1 - num2;
+    } else if (operator === "x") {
+      total = num1 * num2;
+    }
+    setCalculation(total);
+  };
+
+  useEffect(() => {
+    calculate(operand1, operand2, operator);
+  }, [operand1, operand2, operator]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // if (Number(answer) == product) {
-    if (answer == calculation) {
-      if (level == 10) {
+    calculate(operand1, operand2, operator);
+    if (Number(answer) == calculation) {
+      // if (answer == calculation) {
+      if (level === 10) {
         setMessage("You Win!");
       } else {
         setLevel(level + 1);
-        // setAnswer("");
-        setAnswer(0);
+        setAnswer("");
+        // setAnswer(0);
         if (level == 9) {
-          // setFactor1(Math.floor(Math.random() * 10 + 11));
-          // setFactor2(Math.floor(Math.random() * 10 + 11));
           setOperand1(Math.floor(Math.random() * 10 + 11));
           setOperand2(Math.floor(Math.random() * 10 + 11));
-          calculate(operand1, operand2);
         } else if (level >= 5) {
-          // setFactor1(Math.floor(Math.random() * 10 + 11));
-          // setFactor2(Math.floor(Math.random() * 10 + 1));
           setOperand1(Math.floor(Math.random() * 10 + 11));
           setOperand2(Math.floor(Math.random() * 10 + 1));
-          calculate(operand1, operand2);
         } else {
-          // setFactor1(Math.floor(Math.random() * 10 + 1));
-          // setFactor2(Math.floor(Math.random() * 10 + 1));
-          setOperand1(Math.floor(Math.random() * 10 + 1));
-          setOperand2(Math.floor(Math.random() * 10 + 1));
-          calculate(operand1, operand2);
+          generateNewProblem();
         }
       }
     }
@@ -75,11 +75,6 @@ const MultProblem = (props) => {
         <div>
           {message ? <h1>{message}</h1> : <h1>Level {level}</h1>}
           <div className="problemBox">
-            {/* <p className="number">{factor1}</p>
-            <div className="operation">
-              <p className="number">X</p>
-              <p className="number">{factor2}</p>
-            </div> */}
             <p className="number">{operand1}</p>
             <div className="operation">
               <p className="number">{operator}</p>
