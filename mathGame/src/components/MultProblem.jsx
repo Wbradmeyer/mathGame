@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 const MultProblem = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   let [level, setLevel] = useState(1);
   const [answer, setAnswer] = useState("");
   const [factor1, setFactor1] = useState(0);
