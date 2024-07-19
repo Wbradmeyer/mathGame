@@ -68,7 +68,13 @@ const MultProblem = () => {
           </form>
         </div>
         <div className="character">
-          {level == 10 ? (
+          {message ? (
+            <img
+              src="./src/assets/SMBWInvincibleMarioShadow.webp"
+              alt="invincibility picture"
+              className="invincible"
+            />
+          ) : level == 10 ? (
             <img
               src="./src/assets/bowser.webp"
               alt="bowser picture"

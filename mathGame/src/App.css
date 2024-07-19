@@ -42,3 +42,7 @@
 .bowser {
   transform: rotateY(180deg);
 }
+
+.invincible {
+  max-width: 350px;
+}
