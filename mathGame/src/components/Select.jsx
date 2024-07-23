@@ -38,6 +38,11 @@ const Select = (props) => {
           </select>
           <button>Choose</button>
         </form>
+        <img
+          src="./src/assets/marioFace.webp"
+          alt="Mario Head"
+          className="marioFace"
+        />
       </div>
     </div>
   );

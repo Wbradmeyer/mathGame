@@ -5,8 +5,11 @@
   text-align: center;
 }
 
-.selectContainer {
+.selectContainer, .container {
   display: block;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 15px;
 }
 
 .container {
@@ -55,4 +58,8 @@
 
 .invincible {
   max-width: 350px;
+}
+
+.marioFace {
+  max-width: 250px;
 }
