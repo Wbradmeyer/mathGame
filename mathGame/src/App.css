@@ -6,9 +6,11 @@
 }
 
 .selectContainer, .container {
+  background-color: rgb(113, 204, 204);
   display: block;
-  border: 2px solid black;
-  border-radius: 5px;
+  /* border: 2px solid rgb(125, 125, 125); */
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 10px rgb(57, 57, 57);
   padding: 15px;
 }
 
