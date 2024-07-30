@@ -31,7 +31,11 @@ const MultProblem = (props) => {
     if (oper === "+") {
       total = num1 + num2;
     } else if (operator === "-") {
-      total = num1 - num2;
+      if (num2 > num1) {
+        total = num2 - num1;
+      } else {
+        total = num1 - num2;
+      }
     } else if (operator === "x") {
       total = num1 * num2;
     }
@@ -74,13 +78,23 @@ const MultProblem = (props) => {
       <div className="container">
         <div>
           {message ? <h1>{message}</h1> : <h1>Level {level}</h1>}
-          <div className="problemBox">
-            <p className="number">{operand1}</p>
-            <div className="operation">
-              <p className="number">{operator}</p>
-              <p className="number">{operand2}</p>
+          {operand1 >= operand2 ? (
+            <div className="problemBox">
+              <p className="number">{operand1}</p>
+              <div className="operation">
+                <p className="number">{operator}</p>
+                <p className="number">{operand2}</p>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="problemBox">
+              <p className="number">{operand2}</p>
+              <div className="operation">
+                <p className="number">{operator}</p>
+                <p className="number">{operand1}</p>
+              </div>
+            </div>
+          )}
           <hr />
           <form onSubmit={submitHandler}>
             <input
